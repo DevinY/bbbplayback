@@ -16,7 +16,7 @@ composer install
 
 2. Add new .env file.
 <pre>
-cp .env.exampl .env
+cp .env.example .env
 </pre>
 
 3. Edit .env, and config your database settings.
