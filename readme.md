@@ -19,27 +19,32 @@ composer install
 cp .env.example .env
 </pre>
 
-3. Edit .env, and config your database settings.
+3. generate application key
+<pre>
+php artisan key:generate
+</pre>
+
+4. Edit .env, and config your database settings.
 <pre>
 vim .env
 </pre>
 
-4. Create the application's database schema 
+5. Create the application's database schema 
 <pre>
 php artisan migrate
 </pre>
 
-5. Rsync presentation files from BBB Server. 
+6. Rsync presentation files from BBB Server. 
 <pre>
 rsync -av yourserver:/var/bigbluebutton/published/presentation/ storage/app/presentation/
 </pre>
 
-6. Upate meetings table. 
+7. Upate meetings table. 
 <pre>
 php artisan build
 </pre>
 
-7. Using tinker to create login user
+8. Using tinker to create login user
 <pre>
 php artisan tinker
 </pre>
@@ -54,6 +59,6 @@ $u->save()
 exit
 </pre>
 
-8. Input email and password to login
+9. Input email and password to login
 
 http://localhost/login
