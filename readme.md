@@ -4,7 +4,7 @@
 
 Centralized BBB's playback.
 
-1. cd to bbbplayback dir
+1. cd to bbbplayback directory
 <pre>
 cd bbbplayback
 </pre>
@@ -31,7 +31,7 @@ php artisan migrate
 
 5. Rsync presentation files from BBB Server. 
 <pre>
-rsync -av yourserver:/var/bigbluebutton/published/presentation/ app/presentation/
+rsync -av yourserver:/var/bigbluebutton/published/presentation/ storage/app/presentation/
 </pre>
 
 6. Upate meetings table. 
