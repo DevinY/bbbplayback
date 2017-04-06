@@ -2,7 +2,7 @@
 
 用來將多台BBB的影片集中控管
 
-Centralized more than one BBB's playback to one server.
+Centralized video recordings from other to one server.
 
 1. cd to bbbplayback directory
 <pre>
