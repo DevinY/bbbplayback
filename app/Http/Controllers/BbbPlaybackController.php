@@ -64,18 +64,26 @@ class BbbPlaybackController extends Controller
         $svg = new \SimpleXMLElement( $svgString );
         $slides = $svg->xpath("//*[local-name() = 'image']");
         $images = $svg->xpath("//@xlink:href");
-        //取得image path
-        $image_path = preg_replace('/slide-\\d+.png/us', '', (String)$images[0]); 
+        //dd($images);
+        
+       
         $images = array_merge(['logo.png'], $images);
 
         $data=[]; 
-        foreach($slides as $item){
+        foreach($slides as $index=>$item){
+            //echo $index."<br/>";
+            if($index>0){
+                 $slideimg = (String)$images[$index-1];
+            } else {
+                $slideimg = "";
+            }
+           
             //一個圖來回點會有多個in out時間
             $arrin = explode(' ',$item['in']);
             $arrout = explode(' ',$item['out']);
             foreach($arrin as $in_index=>$in){
                 $imageid  = (String)$item['id'];
-                $slideimg = sprintf("%sslide-%s.png",$image_path, preg_replace('/(image)(\\d+)/us', '$2', $imageid));
+              
                 $data[]=[
                 "id"=>$imageid,
                 "itime"=>gmdate("H:i:s", $in),
