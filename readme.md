@@ -3,8 +3,12 @@
 用來將多台BBB的影片集中控管
 
 Centralized video recordings from other to one server.
+### Server Requirements
+https://laravel.com/docs/5.4
 
-1. cd to bbbplayback directory
+### How to install:
+
+1. download and change directory to bbbplayback.
 <pre>
 cd bbbplayback
 </pre>
@@ -26,7 +30,8 @@ php artisan key:generate
 
 4. Edit .env, and config your database settings.
 <pre>
-vim .env
+DB_CONNECTION=sqlite
+DB_DATABASE=/absolute/path/to/database.sqlite
 </pre>
 
 5. Create the application's database schema 
