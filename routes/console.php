@@ -25,22 +25,24 @@ Artisan::command('build', function(){
       while (false !== ($entry = readdir($handle))) {
         if(preg_match('/.+-\\d+/us', $entry)){
             $metadata = sprintf("%s/%s/%s", $presentation_dir, $entry, "metadata.xml");
-            $xml = new \SimpleXMLElement(file_get_contents($metadata));
-            var_dump((String)$xml->meta->meetingId);
-            Meeting::updateOrCreate(
-                ['internalid' => (String)$xml->id],
-                [
-                'internalid' => (String)$xml->id,
-                'start_time' => Carbon::createFromTimestamp((String)$xml->start_time/1000),
-                'end_time' => Carbon::createFromTimestamp((String)$xml->end_time/1000),
-                'meetingId'=> (String)$xml->meta->meetingId,
-                'meetingName'=>(String)$xml->meta->meetingName
-                ]
-                );
+            if(file_exists($metadata)){
+                $xml = new \SimpleXMLElement(file_get_contents($metadata));
+                var_dump((String)$xml->meta->meetingId);
+                Meeting::updateOrCreate(
+                    ['internalid' => (String)$xml->id],
+                    [
+                    'internalid' => (String)$xml->id,
+                    'start_time' => Carbon::createFromTimestamp((String)$xml->start_time/1000),
+                    'end_time' => Carbon::createFromTimestamp((String)$xml->end_time/1000),
+                    'meetingId'=> (String)$xml->meta->meetingId,
+                    'meetingName'=>(String)$xml->meta->meetingName
+                    ]
+                    );
 
-            echo $metadata."\n";
+                echo $metadata."\n";
+            }
         }
     }
 
-    }
+}
 })->describe('update meetings table');
