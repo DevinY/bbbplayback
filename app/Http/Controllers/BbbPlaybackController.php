@@ -73,7 +73,7 @@ class BbbPlaybackController extends Controller
         foreach($slides as $index=>$item){
             //echo $index."<br/>";
             if($index>0){
-                 $slideimg = (String)$images[$index-1];
+                 $slideimg = (String)$images[$index];
             } else {
                 $slideimg = "";
             }
