@@ -2,7 +2,7 @@
 
 用來將多台BBB的影片集中控管
 
-Centralized BBB's playback.
+Centralized more than one BBB's playback to one server.
 
 1. cd to bbbplayback directory
 <pre>
@@ -39,7 +39,7 @@ php artisan migrate
 rsync -av yourserver:/var/bigbluebutton/published/presentation/ storage/app/presentation/
 </pre>
 
-7. Upate meetings table. 
+7. Update presentations metadata to meetings table. 
 <pre>
 php artisan build
 </pre>
