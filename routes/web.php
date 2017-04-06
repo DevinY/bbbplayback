@@ -21,4 +21,8 @@ Route::get('/video/{internal}', 'MediaFileController@file');
 Route::get('/image/{internalid}/logo.png','MediaFileController@logo'); 
 Route::get('/image/{internalid}/presentation/{imgid}/{filename}','MediaFileController@image'); 
 
+Route::get('/home', function() {
+   return redirect('/bbb');
+});
+
 Auth::routes();
