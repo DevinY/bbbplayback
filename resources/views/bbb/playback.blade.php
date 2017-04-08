@@ -44,8 +44,10 @@
            <video id={{$internalid}} width=400  class="video-js vjs-default-skin" controls>
               <source src="/video/{{$internalid}}" type="video/webm"></source>
           </video>
-          <div id="chats">
-          </div> 
+          <div style="height:300px; overflow-x: scroll;">
+              <div id="chats">
+              </div> 
+          </div>
       </td>
   </tr>
 </tbody>
