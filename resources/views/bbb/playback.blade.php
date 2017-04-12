@@ -14,7 +14,9 @@
                             <tr class="default">
                                 <td>
                                 <div style="position: relative">
-                                    <img src="/image/{{$internalid}}/{{$item['image']}}" 
+								   @if(!empty($item['image']))
+								   <img src="/image/{{$internalid}}/{{$item['image']}}" 
+
                                     @if($i==0)
                                     class="hide"
                                     @endif
@@ -22,6 +24,7 @@
                                     out="{{$item['out']}}"
                                     style="width:150px;"
                                     >
+								   @endif
                                     <span style="" class="hide thumbnail-label itime">{{$item['itime']}}</span>
                                     </div>
                                 </td>
@@ -44,7 +47,7 @@
            <video id={{$internalid}} width=400  class="video-js vjs-default-skin" controls>
               <source src="/video/{{$internalid}}" type="video/webm"></source>
           </video>
-          <div style="height:300px; overflow-x: scroll;">
+          <div id="chat-area" style="height:300px; overflow-x: scroll;">
               <div id="chats">
               </div> 
           </div>
@@ -93,7 +96,9 @@
         }
     });
        $("#chats").html(chat_string);
+   	   $('#chat-area').animate({scrollTop: $("#chats")[0].scrollHeight }, 'slow');
    }
+
 
    var setSlides = function(ct){
     arr = imgdata.filter(
@@ -103,7 +108,9 @@
     var i = imgdata.length-arr.length;
     if(ct>img_in){
         var src = "/image/{{$internalid}}/"+imgdata[i-1].image;
-        $("img#present").attr("src", src);
+		if(src.match(/.png$/i)){
+			  $("img#present").attr("src", src);
+		}
     }
 }
 
