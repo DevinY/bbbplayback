@@ -69,4 +69,4 @@ exit
 
 9. Input email and password to login
 
-http://localhost/login
+http://localhost/bbb
