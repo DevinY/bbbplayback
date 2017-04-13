@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        BBB影片列表
+                        @lang('bbb.BBB Presentation list')
                     </a>
                 </div>
 

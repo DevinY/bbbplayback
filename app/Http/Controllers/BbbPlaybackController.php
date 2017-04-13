@@ -12,9 +12,19 @@ class BbbPlaybackController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(){
-        $meetings = Meeting::orderBy('start_time','desc')->paginate(15);
+    public function index(Request $r){
+        $queryStr = "1 = 1";
+        $search = "";
+        if(isset($r->search)){
+            $search = $r->search;
+            $queryStr=sprintf("meetingId like '%%%s%%'", $r->search);
+        }
+
+        $meetings = Meeting::whereRaw($queryStr)
+        ->orderBy('start_time','desc')
+        ->paginate(15);
         return view('bbb.index')
+        ->with('search', $search)
         ->with('meetings',$meetings);
     }
 
