@@ -3,6 +3,9 @@
 用來將多台BBB的影片集中控管
 
 Centralized video recordings from other to one server.
+
+<img src="https://github.com/DevinY/images/blob/master/bbbplayback_lists.png" style="width:300px">
+
 ### Server Requirements
 https://laravel.com/docs/5.4
 
